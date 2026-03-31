@@ -3,7 +3,7 @@
 if getgenv().Nousigi then 
 	if game.CoreGui:FindFirstChild("Night Mystic GUI") then
 		for i, v in ipairs(game.CoreGui:GetChildren()) do
-			if string.find(v.Name,  "Apple hub ") then
+			if string.find(v.Name,  "Apple hub") then
 				v:Destroy()
 			end
 		end
