@@ -3,7 +3,7 @@
 if getgenv().Nousigi then 
 	if game.CoreGui:FindFirstChild("Night Mystic GUI") then
 		for i, v in ipairs(game.CoreGui:GetChildren()) do
-			if string.find(v.Name,  "Apple hub") then
+			if string.find(v.Name,  "Night Mystic") then
 				v:Destroy()
 			end
 		end
@@ -3852,3 +3852,30 @@ end
 end
 
 return Library
+-- Ép menu hiện lên ngay khi chạy script
+getgenv().UIToggled = true 
+
+-- 1. Tạo cửa sổ chính (Window)
+local Window = Library:CreateWindow({
+    Title = "Apple Hub | V5",
+    Desc = "Status: Online",
+    Image = "rbxassetid://105245380363493"
+})
+
+-- 2. Tạo các Tab (Cái này cực kỳ quan trọng để hiện Menu)
+local Tab1 = Window:AddTab("Main", "rbxassetid://4483345998")
+local Tab2 = Window:AddTab("Combat", "rbxassetid://4483345998")
+
+-- 3. Thêm các mục (Section) và chức năng vào Tab
+local MainSection = Tab1:AddSection("Auto Farm")
+
+MainSection:AddToggle("Auto Level", false, function(state)
+    _G.AutoFarm = state
+    print("Trạng thái Auto Farm:", state)
+end)
+
+MainSection:AddButton("Refresh Menu", function()
+    print("Đã làm mới giao diện")
+end)
+
+-- Sau khi thêm đoạn này, menu sẽ tự động hiện ra các cột và nút bấm.
